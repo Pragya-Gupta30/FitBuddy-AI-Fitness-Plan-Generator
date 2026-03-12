@@ -1,51 +1,46 @@
-# FitBuddy-AI-Fitness-Plan-Generator
-FitBuddy – AI Fitness Plan Generator
-FitBuddy is an AI-powered web application that generates personalized 7-day workout plans and nutrition tips based on a user’s fitness profile. The system collects user details such as age, weight, fitness goal, and workout intensity, then uses Generative AI to create structured and goal-oriented fitness routines.
+# 🏋️ FitBuddy – AI Fitness Plan Generator
 
-The application also allows users to submit feedback to update their workout plans, ensuring the plan adapts to their evolving fitness needs. All user information and workout plans are stored in a SQLite database and can be viewed through an admin dashboard.
+FitBuddy is an AI-powered web application that generates **personalized 7-day workout plans and nutrition tips** based on a user’s fitness profile. The system collects user details such as **age, weight, fitness goal, and workout intensity**, then uses Generative AI to create structured and goal-oriented fitness routines.
 
-Features
-AI generated 7-day workout plans
+The application also allows users to **submit feedback to update their workout plans**, ensuring the plan adapts to their evolving fitness needs. All user information and workout plans are stored in a **SQLite database** and can be viewed through an **admin dashboard**.
 
-Personalized nutrition & recovery tips
+---
 
-User feedback system to update workout plans
+# ✨ Features
 
-Admin dashboard to view all users and their plans
+- 🤖 AI generated **7-day workout plans**
+- 🥗 Personalized **nutrition & recovery tips**
+- 🔄 **Feedback system** to update workout plans
+- 👥 **Admin dashboard** to view all users and plans
+- 💾 **SQLite database** for storing user data
+- 🎨 Clean and responsive **UI using HTML templates**
+- ⚡ Built with **FastAPI backend**
 
-SQLite database for storing user data
+---
 
-Clean and responsive UI using HTML templates
+# 🛠 Tech Stack
 
-Built with FastAPI backend
+### Backend
+- FastAPI  
+- Python  
 
-Tech Stack
-Backend
+### Database
+- SQLite  
+- SQLAlchemy  
 
-FastAPI
+### Frontend
+- HTML  
+- Jinja2 Templates  
+- CSS  
 
-Python
+### AI Integration
+- Generative AI API (Gemini-style workout generation)
 
-Database
+---
 
-SQLite
+# 📁 Project Structure
 
-SQLAlchemy
-
-Frontend
-
-HTML
-
-Jinja2 Templates
-
-CSS
-
-AI Integration
-
-Generative AI API (Gemini-style workout generation)
-
-Project Structure
-
+```
 fitbuddy
 │
 ├── app
@@ -63,95 +58,131 @@ fitbuddy
 ├── requirements.txt
 ├── README.md
 └── .env
-How to Run the Project
-1. Clone the repository
+```
 
+---
+
+# 🚀 How to Run the Project
+
+## 1️⃣ Clone the repository
+
+```bash
 git clone https://github.com/YOUR_USERNAME/fitbuddy.git
 cd fitbuddy
-2. Install dependencies
+```
 
+---
+
+## 2️⃣ Install dependencies
+
+```bash
 pip install -r requirements.txt
-3. Add your API key
-Create a .env file and add:
+```
 
+---
 
+## 3️⃣ Add your API key
+
+Create a `.env` file and add:
+
+```
 GROQ_API_KEY=your_api_key_here
-4. Run the FastAPI server
+```
 
+---
+
+## 4️⃣ Run the FastAPI server
+
+```bash
 uvicorn app.main:app --reload
-5. Open the application
-Open your browser and go to:
+```
 
+---
 
+## 5️⃣ Open the application
+
+Main Application
+
+```
 http://127.0.0.1:8000
-FastAPI API docs are available at:
+```
 
+FastAPI API Docs
 
+```
 http://127.0.0.1:8000/docs
-Application Pages
-Home Page
-Users enter their:
+```
 
-Name
+---
 
-User ID
+# 📄 Application Pages
 
-Age
+## 🏠 Home Page
 
-Weight
+Users enter:
 
-Fitness Goal
+- Name   
+- Age  
+- Weight  
+- Fitness Goal  
+- Workout Intensity  
 
-Workout Intensity
+After submission, the AI generates a **personalized workout plan**.
 
-After submission, the AI generates a personalized workout plan.
+---
 
-Personalized Workout Page
+## 📊 Personalized Workout Page
+
 Displays:
 
-User profile
+- User profile summary  
+- Generated **7-day workout plan**
+- **Nutrition & recovery tip**
+- Option to **update plan using feedback**
 
-Generated 7-day workout plan
+---
 
-Nutrition & recovery tip
+## 🔄 Feedback Feature
 
-Option to update plan using feedback
-
-Feedback Feature
 Users can submit feedback like:
 
-"Add more cardio"
-
-"Make workouts easier"
+- "Add more cardio"
+- "Make workouts easier"
 
 The AI updates the workout plan accordingly.
 
-Admin Dashboard
-The View All Users page displays:
+---
 
-User details
+## 👥 Admin Dashboard
 
-Original workout plan
+The **View All Users** page displays:
 
-Updated workout plan
+- User details  
+- Original workout plan  
+- Updated workout plan  
 
 This helps monitor user plans and feedback updates.
 
-Example Use Cases
-Scenario 1
-A user enters their fitness details and receives a personalized 7-day workout plan tailored to their goals and workout intensity.
+---
 
-Scenario 2
-The user provides feedback on the generated workout plan, and the system regenerates an updated plan.
+# 📌 Example Use Cases
 
-Scenario 3
-The system provides a nutrition or recovery tip aligned with the user’s fitness goal.
+### Scenario 1
+A user enters their fitness details and receives a **personalized 7-day workout plan** tailored to their goals.
 
-Future Improvements
-Authentication system for users
+### Scenario 2
+The user provides feedback on the generated workout plan, and the system **regenerates an updated plan**.
 
-BMI and calorie calculation
+### Scenario 3
+The system provides **nutrition or recovery tips** aligned with the user’s fitness goal.
 
-Exercise video recommendations
+---
 
-Deployment on cloud platforms
+# 🚀 Future Improvements
+
+- User authentication system  
+- BMI and calorie calculation  
+- Exercise video recommendations  
+- Cloud deployment (Render / Railway / AWS)
+
+---
