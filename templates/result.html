@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Workout Plan - FitBuddy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            padding: 40px;
+        }
+        
+        h1 {
+            color: #667eea;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        
+        .ai-label {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+        
+        .user-info {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .user-info h2 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        
+        .info-item {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .info-label {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+        
+        .info-value {
+            color: #333;
+            font-weight: 600;
+            font-size: 16px;
+        }
+        
+        .workout-plan {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid #e0e0e0;
+        }
+        
+        .workout-plan h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+        }
+        
+        .plan-content {
+            white-space: pre-wrap;
+            line-height: 1.8;
+            color: #333;
+        }
+        
+        .back-button {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: transform 0.2s;
+        }
+        
+        .back-button:hover {
+            transform: translateY(-2px);
+        }
+        
+        .feedback-section {
+            margin-top: 30px;
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+        }
+        
+        .feedback-section h2 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+        
+        .feedback-section p {
+            color: #666;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+        
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            resize: vertical;
+            min-height: 100px;
+            transition: border-color 0.3s;
+        }
+        
+        textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        .submit-button {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        
+        .submit-button:hover {
+            transform: translateY(-2px);
+        }
+        
+        .nutrition-tip {
+            margin-top: 30px;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            padding: 25px;
+            border-radius: 10px;
+            color: white;
+        }
+        
+        .nutrition-tip h2 {
+            color: white;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+        
+        .tip-content {
+            font-size: 16px;
+            line-height: 1.6;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🏋️ Your Personalized Workout Plan</h1>
+        
+        <div class="ai-label">
+            ✨ Workout Plan Generated using Google Gemini AI
+        </div>
+        
+        {% if show_user_info %}
+        <div class="user-info">
+            <h2>Your Profile</h2>
+            <div class="info-grid">
+                <div class="info-item">
+                    <span class="info-label">Name</span>
+                    <span class="info-value">{{ username }}</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Age</span>
+                    <span class="info-value">{{ age }} years</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Weight</span>
+                    <span class="info-value">{{ weight }} kg</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Fitness Goal</span>
+                    <span class="info-value">{{ goal }}</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Intensity Level</span>
+                    <span class="info-value">{{ intensity }}</span>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        
+        <div class="workout-plan">
+            <h2>📋 Your 7-Day Workout Plan</h2>
+            <div class="plan-content">{{ workout_plan }}</div>
+        </div>
+        
+        {% if nutrition_tip %}
+        <div class="nutrition-tip">
+            <h2>🥗 Nutrition & Recovery Tip</h2>
+            <p class="tip-content">{{ nutrition_tip }}</p>
+        </div>
+        {% endif %}
+        
+        <div class="feedback-section">
+            <h2>💬 Want to Adjust Your Plan?</h2>
+            <p>Tell us what you'd like to change, and we'll update your workout plan accordingly!</p>
+            <form action="/submit-feedback" method="post">
+                <textarea 
+                    name="feedback" 
+                    placeholder="Example: Make Day 1 easier, add more cardio on Day 3, replace squats with lunges..."
+                    required
+                ></textarea>
+                <input type="hidden" name="original_plan" value="{{ workout_plan }}">
+                {% if workout_plan_id %}
+                <input type="hidden" name="workout_plan_id" value="{{ workout_plan_id }}">
+                {% endif %}
+                <button type="submit" class="submit-button">Update My Plan 🔄</button>
+            </form>
+        </div>
+        
+        <a href="/" class="back-button">← Generate Another Plan</a>
+    </div>
+</body>
+</html>
